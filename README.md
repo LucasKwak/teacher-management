@@ -1,5 +1,10 @@
 # teacher-management
 
+## Project info
+Este es un pequeño proyecto para introducirme en las bases de Vue. En él se trabajarán con bindings y con las directivas básicas.
+
+El projecto consiste en poder dar de alta en el sistema a un profesor, aportando su nombre, apellidos, DNI y sus materias.
+
 ## Project setup
 ```
 npm install
