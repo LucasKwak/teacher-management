@@ -5,6 +5,12 @@ Este es un pequeño proyecto para introducirme en las bases de Vue. En él se tr
 
 El projecto consiste en poder dar de alta en el sistema a un profesor, aportando su nombre, apellidos, DNI y sus materias.
 
+## Project review
+Galería de fotos del componente:
+![Vista incial del sistema](./src/assets/foto-1.png)
+![Escribiendo datos](./src/assets/foto-2.png)
+![Profesor añadido](./src/assets/foto-3.png)
+
 ## Project setup
 ```
 npm install
@@ -24,6 +30,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
