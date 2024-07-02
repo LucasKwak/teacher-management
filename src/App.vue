@@ -2,16 +2,8 @@
     <TeacherForm></TeacherForm>
 </template>
 
-<script lang="ts">
-    import { defineComponent } from 'vue';
+<script lang="ts" setup>
     import TeacherForm from './components/TeacherForm.vue';
-
-    export default defineComponent({
-        name: 'App',
-        components: {
-            TeacherForm
-        }
-    });
 </script>
 
 <style>
