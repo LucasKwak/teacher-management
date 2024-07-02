@@ -36,8 +36,33 @@
         </form>
     </section>
 
-    <section>
+    <section class="teacher-list">
         <h2>LISTADO DE PROFESORES DADOS DE ALTA</h2>
+        <table class="teacher-table">
+            <thead class="teacher-table__header">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>DNI</th>
+                    <th>Materias</th>
+                    <th>Documentación entregada</th>
+                    </tr>
+            </thead>
+            <tbody>
+                <tr class="teacher-table__row" v-for="teac in teachers" :key="teac.dni">
+                    <td>{{ teac.name }}</td>
+                    <td>{{ teac.surname }}</td>
+                    <td>{{ teac.dni }}</td>
+                    <td class="teacher-table__subjects">
+                        <ul>
+                            <li v-for="(subj, index) in teac.subjects" :key="index">{{ subj }}</li>
+                        </ul>
+                    </td>
+                    <td v-if="teac.documentation">Entregada</td>
+                    <td v-else>No entregada</td>
+                </tr>
+            </tbody>
+        </table>
     </section>
 </template>
 
@@ -73,31 +98,44 @@
             alert("Escriba una materia primero");
         }else{
             teacher.value.subjects.push(subject.value);
-            subject.value = '';
         }
     }
 
     // FUNCION PARA AÑADIR UN PROFESOR
     function addTeacher() {
-        teachers.value.push(
-            {
-                name: teacher.value.name,
-                surname: teacher.value.surname,
-                dni: teacher.value.dni,
-                subjects: teacher.value.subjects,
-                documentation: teacher.value.documentation,
+        if(teacher.value.name == ''){
+            alert("Escriba el nombre del profesor primero");
+        }else{
+            if(teacher.value.surname == ''){
+                alert("Escriba los apellidos del profesor primero");
+            }else{
+                if(teacher.value.dni == ''){
+                    alert("Escriba el DNI del profesor primero");
+                }else{
+                    teachers.value.push(
+                        {
+                            name: teacher.value.name,
+                            surname: teacher.value.surname,
+                            dni: teacher.value.dni,
+                            subjects: teacher.value.subjects,
+                            documentation: teacher.value.documentation,
+                        }
+                    );
+                    teacher.value.name = '';
+                    teacher.value.surname = '';
+                    teacher.value.dni = '';
+                    teacher.value.subjects = [];
+                    teacher.value.documentation = false;
+                }
             }
-        );
-        teacher.value.name = '';
-        teacher.value.surname = '';
-        teacher.value.dni = '';
-        teacher.value.subjects = [];
-        teacher.value.documentation = false;
+        }
     }
 
 </script>
 
 <style scoped>
+
+    /*-------------------PARA EL FORMULARIO DE AÑADIR UN PROFESOR-------------------*/
     .teacher-section {
         display: flex;
         flex-direction: column;
@@ -158,4 +196,37 @@
         box-sizing: content-box;
     }
 
+    /*-------------------------PARA EL LISTADO DE PROFESORES------------------------*/
+
+    .teacher-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .teacher-table__header {
+        color: #BBC4BE;
+        background-color: #595c5a;
+    }
+
+    .teacher-table td {
+        text-align: center;
+    }
+
+    .teacher-table__row {
+        background-color: #BBC4BE;
+    }
+
+    .teacher-table__row:nth-of-type(2n){
+        background-color: hsl(0 0% 0% / 0.05);
+    }
+
+    .teacher-table__subjects{
+        display: block;
+        overflow-y: scroll;
+    }
+
+    .teacher-table__subjects ul {
+        text-align: left;
+        max-height: 100px;
+    }
 </style>
