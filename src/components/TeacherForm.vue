@@ -98,6 +98,7 @@
             alert("Escriba una materia primero");
         }else{
             teacher.value.subjects.push(subject.value);
+            subject.value = '';
         }
     }
 
