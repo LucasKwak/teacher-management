@@ -7,8 +7,14 @@ El projecto consiste en poder dar de alta en el sistema a un profesor, aportando
 
 ## Project review
 Galería de fotos del componente:
+
+- Vista inicial del sistema
 ![Vista incial del sistema](./src/assets/foto-1.png)
+
+- Escribiedo datos
 ![Escribiendo datos](./src/assets/foto-2.png)
+
+- Profesor añadido
 ![Profesor añadido](./src/assets/foto-3.png)
 
 ## Project setup
